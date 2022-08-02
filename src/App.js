@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
+
+import Navbar from './components/layout/Navbar';
+import Main from './components/layout/Main';
+import { CoinProvider } from './context/CoinContext';
+import About from './components/layout/About'
+import Market from '../src/pages/Market';
+import Crypto from './components/coins/Crypto/Crypto';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CoinProvider>
+      <Router>
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path='/' element={<Main />}>
+            </Route>
+              <Route path='/crypto/:name' element={<Crypto />}/>
+              {/* <Route path='/market' element={<Market />} /> */}
+              <Route path='/about' element={<About />} />
+          </Routes>
+        </main>
+      </Router>
+    </CoinProvider>
   );
 }
 
