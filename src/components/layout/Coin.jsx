@@ -28,15 +28,7 @@ function Coin() {
 
 
       <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
-        <Box gridColumn="span 4">
-          <Item>
-            <CoinSearch />
-            <Button
-              onClick={() => dispatch({ type: 'CLEAR_COINS', payload: coin })}
-            >
-              Clear
-            </Button>
-          </Item>
+        <Box gridColumn="span 2">
         </Box>
 
         <Box gridColumn="span 8" >

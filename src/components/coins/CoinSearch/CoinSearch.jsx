@@ -32,7 +32,7 @@ export default function CoinSearch() {
   }
 
   return (
-    <>
+    <div  style={{display:"inline-block"}}>
     <Box
       component="form"
       sx={{
@@ -56,6 +56,6 @@ export default function CoinSearch() {
     </Box>
      
    
-    </>
+    </div>
   );
 }

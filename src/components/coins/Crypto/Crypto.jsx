@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 function Crypto() {
   let { name } = useParams();
   const { searchResult, coin, dispatch } = React.useContext(CoinContext);
+
   React.useEffect( () => {
    (async ()=>{
     if (!searchResult) {
@@ -17,6 +18,8 @@ function Crypto() {
     }
   })()
   }, []);
+
+  
   return searchResult && <CryptoResult />;
 }
 

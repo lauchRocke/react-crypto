@@ -19,6 +19,14 @@ import InputBase from '@mui/material/InputBase';
 import CoinSearch from '../coins/CoinSearch/CoinSearch';
 import About from './About';
 import { Link, Outlet } from 'react-router-dom'
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import MoreIcon from '@mui/icons-material/MoreVert';
+import Crypto from '../Crypto/Crypto';
+import Nft from '../Nft/Nft';
+import Exchanges from '../Exchanges/Exchanges';
 
 const drawerWidth = 240;
 const navItems = ['Home', <About />, 'Contact'];
@@ -70,7 +78,7 @@ function Navbar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           > <Link to='/' style={{textDecoration: 'none', color: 'white'}}>
-            MUI </Link>
+            2MARS </Link>
           </Typography>
          
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
@@ -79,15 +87,53 @@ function Navbar(props) {
                 {item}
               </Button>
             ))} */}
-            <Link to='/about' style={{textDecoration: 'none'}}>
+            <Link to='/crypto' style={{textDecoration: 'none'}}>
               <Button sx={{ color: '#fff' }}>
-                {<About />}
+                {<Crypto />}
+              </Button>
+            </Link>
+            <Link to='/nft' style={{textDecoration: 'none'}}>
+              <Button sx={{ color: '#fff' }}>
+                {<Nft />}
+              </Button>
+            </Link>
+            <Link to='/exchanges' style={{textDecoration: 'none'}}>
+              <Button sx={{ color: '#fff' }}>
+                {<Exchanges />}
               </Button>
             </Link>
           </Box>
         </Toolbar>
       </AppBar>
       <Box component="nav">
+      <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+              <Badge badgeContent={4} color="error">
+                <MailIcon />
+              </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              <Badge badgeContent={17} color="error">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+
+              aria-haspopup="true"
+
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          </Box>
+            
         <Drawer
           container={container}
           variant="temporary"

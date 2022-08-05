@@ -11,12 +11,7 @@ function CryptoResult() {
   const {
     searchResult: { id, symbol, market_data, image, name,tickers },
   } = useContext(CoinContext);
-  let [data, setData] = useState([
-    { name: 'ok', value: 12 },
-    { name: 'ok', value: 12 },
-    { name: 'ok', value: 12 },
-    { name: 'ok', value: 12 },
-  ]);
+
 
   //console.log(searchResult, "search result")
   return (
