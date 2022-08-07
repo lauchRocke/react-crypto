@@ -1,28 +1,27 @@
 import { createContext, useReducer } from 'react';
-import {CoinReducer} from './CoinReducer';
+import { CoinReducer } from './CoinReducer';
 
 const CoinContext = createContext();
 
 export const CoinProvider = ({ children }) => {
+  const initialState = {
+    coin: [],
+    fetchHistoryCoin: null,
+    searchResult: null,
+  };
+  const [state, dispatch] = useReducer(CoinReducer, initialState);
+  // console.log(state)
 
-    const initialState = {
-        coin: [], 
-        fetchHistoryCoin: [],
-        searchResult:null
-    }
-    const [state, dispatch] = useReducer(CoinReducer, initialState);
-    // console.log(state)
-
-    
-    return <CoinContext.Provider  
-    
-    value={{
+  return (
+    <CoinContext.Provider
+      value={{
         ...state,
-        dispatch, 
-
-    }}>
-        {children}
+        dispatch,
+      }}
+    >
+      {children}
     </CoinContext.Provider>
-}
+  );
+};
 
-export default CoinContext
+export default CoinContext;

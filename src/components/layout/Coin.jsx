@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 function Coin() {
     const { searchResult, coin, dispatch, fetchHistoryCoin } = React.useContext(CoinContext);
-    console.log(fetchHistoryCoin)
+   // console.log(45,fetchHistoryCoin)
   return (
     <>
 
@@ -38,7 +38,7 @@ function Coin() {
               <CoinResuableResult />
             </Item>
           ) : null}
-          {Object.keys(fetchHistoryCoin).length ? (
+          {fetchHistoryCoin ? (
             <Item>
               <FetchHistoryResult />
             </Item>
