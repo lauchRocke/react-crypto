@@ -7,6 +7,7 @@ import { CoinProvider } from './context/CoinContext';
 import About from './components/layout/About'
 import Market from '../src/pages/Market';
 import Crypto from './components/coins/Crypto/Crypto';
+import Exchanges from './components/Exchanges/Exchanges';
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Main />}/>
             <Route path='/crypto/:name' element={<Crypto />}/>
-            {/* <Route path='/market' element={<Market />} /> */}
+            <Route path='/exchanges' element={<Exchanges />} />
             <Route path='/about' element={<About />} />
           </Routes>
         </main>

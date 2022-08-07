@@ -36,3 +36,14 @@ export const fetchMarket = async () => {
     console.error()
   }
 }
+
+// exchanges data
+export const exchangesData = async () =>{
+  try {
+    let data = await CoinGeckoClient.exchanges.all();
+    console.log(data.data)
+    return data.data;
+  } catch (error) {
+    console.error(error)
+  }
+}

@@ -11,6 +11,7 @@ export const CoinReducer = (state, action) => {
         coin: [],
         fetchHistoryCoin: [],
         loading: false,
+        exchangesCoin: []
       };
     case 'SET_LOADING':
       return {
@@ -23,6 +24,7 @@ export const CoinReducer = (state, action) => {
         coin: [],
         fetchHistoryCoin: [],
         searchResult: null,
+        exchangesCoin: []
       };
       case 'GET_COIN_parsed':
         return {
@@ -30,14 +32,24 @@ export const CoinReducer = (state, action) => {
           coin: action.payload,
           fetchHistoryCoin: [],
           searchResult: null,
+          exchangesCoin: []
       };
      case 'FETCH_HISTORY':
       return {
         ...state,
         coin: [],
         searchResult : null,
-        fetchHistoryCoin: action.payload
+        fetchHistoryCoin: action.payload,
+        exchangesCoin: []
       };
+      case 'GET_EXCHANGES':
+        return {
+        ...state,
+        coin: [],
+        searchResult: null,
+        fetchHistoryCoin : [],
+        exchangesCoin: []
+        };
     default:
       return state;
   }

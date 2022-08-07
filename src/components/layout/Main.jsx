@@ -23,7 +23,7 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function Main() {
-  const { searchResult, coin, dispatch } = React.useContext(CoinContext);
+  const { searchResult, coin, dispatch, fetchHistoryCoin } = React.useContext(CoinContext);
 
   return (
     <>
