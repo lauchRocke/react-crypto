@@ -16,11 +16,10 @@ function App() {
         <Navbar />
         <main>
           <Routes>
-            <Route path='/' element={<Main />}>
-            </Route>
-              <Route path='/crypto/:name' element={<Crypto />}/>
-              {/* <Route path='/market' element={<Market />} /> */}
-              <Route path='/about' element={<About />} />
+            <Route path='/' element={<Main />}/>
+            <Route path='/crypto/:name' element={<Crypto />}/>
+            {/* <Route path='/market' element={<Market />} /> */}
+            <Route path='/about' element={<About />} />
           </Routes>
         </main>
       </Router>

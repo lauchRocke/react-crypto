@@ -1,21 +1,19 @@
 import { useState, useContext } from 'react';
 import { Box, Button } from '@mui/material/';
-import { reUsable } from '../../../context/CoinActions';
-import CoinContext from '../../../context/CoinContext';
+import { fetchMarket } from '../../context/CoinActions';
+import CoinContext from '../../context/CoinContext';
 
-function CoinReusable({ coinKey }) {
+function FetchHistory() {
   const { dispatch } = useContext(CoinContext);
 
-  const handleOrder = async (e) => {
+  const handleFetch = async (e) => {
     e.preventDefault();
-
-    const coin = await reUsable(coinKey);
-    // console.log({ coin, coinKey });
-    dispatch({ type: 'GET_COIN_parsed', payload: coin });
+    const fetchHistoryCoin = await fetchMarket();
+    // console.log({ fetchHistoryCoin})
+    dispatch({ type: 'FETCH_HISTORY', payload: fetchHistoryCoin });
   };
-
   return (
-    <div >
+    <div>
       <Box
         component="form"
         sx={{
@@ -23,19 +21,19 @@ function CoinReusable({ coinKey }) {
         }}
         noValidate
         autoComplete="off"
-        onSubmit={handleOrder}
+        onSubmit={handleFetch}
       >
         <Button
           type="submit"
-          onChange={handleOrder}
+          onChange={handleFetch}
           variant="contained"
           sx={{ m: 2 }}
         >
-          {coinKey}
+          History
         </Button>
       </Box>
     </div>
   );
 }
 
-export default CoinReusable;
+export default FetchHistory;

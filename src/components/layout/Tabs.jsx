@@ -81,7 +81,7 @@ export default function Tabs() {
   const darkTheme = createTheme({
     palette: {
       primary: {
-        main: '#808080',
+        main: 'rgb(211, 211, 211)',
       },
     },
   });
@@ -110,8 +110,9 @@ export default function Tabs() {
           </Search>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-Portfolio
+                Portfolio
             </IconButton>
             <IconButton
               size="large"

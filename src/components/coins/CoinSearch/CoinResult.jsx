@@ -17,7 +17,7 @@ function CoinResult(){
      }
    })()
    }, []);
-    console.log(searchResult, "search result")
+    // console.log(searchResult, "search result")
     return (
       
       <Link to={`/crypto/${searchResult.id}`} style={{textDecoration: 'none'}} >

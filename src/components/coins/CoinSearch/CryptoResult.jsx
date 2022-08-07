@@ -13,7 +13,7 @@ function CryptoResult() {
   } = useContext(CoinContext);
 
 
-  //console.log(searchResult, "search result")
+  console.log(tickers[0].target, "tickers result")
   return (
     <>
       <h1>{name}</h1>

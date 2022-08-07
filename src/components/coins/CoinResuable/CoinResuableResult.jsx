@@ -11,11 +11,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
+
 function CoinResuableResult() {
   const { coin, loading, dispatch } = useContext(CoinContext);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  console.log(coin);
+  // console.log(coin);
 
   const handleClick = async (coinName) => {
     dispatch({ type: 'SET_LOADING' });

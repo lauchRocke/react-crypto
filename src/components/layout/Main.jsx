@@ -3,15 +3,14 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { Button, Tab } from '@mui/material';
-import CoinSearch from '../coins/CoinSearch/CoinSearch';
-import CoinResult from '../coins/CoinSearch/CoinResult';
+
 import CoinContext from '../../context/CoinContext';
 
 
 import BasicTabs from './Tab';
 import Navbar from './Navbar';
 import { Link, Outlet } from 'react-router-dom'
-import CoinResuableResult from '../coins/CoinResuable/CoinResuableResult';
+
 import Coin from './Coin';
 import Divider from '@mui/material/Divider';
 import Tabs from './Tabs';

@@ -1,21 +1,18 @@
 import CoinGecko from 'coingecko-api';
-// https://github.com/miscavage/CoinGecko-API
-//2. Initiate the CoinGecko API Client
+
 const CoinGeckoClient = new CoinGecko();
 
 export const searchCoin = async (text) => {
   // const params = new URLSearchParams({
   //     text
   // })
-
-  // let response = await CoinGeckoClient.coins.all();
   let response = await CoinGeckoClient.coins.fetch(`${text}`, {});
   // console.log(response.data)
   return response.data;
 };
 
 export const reUsable = async (key) => {
-  console.log(key);
+  // console.log(key);
   let res = await CoinGeckoClient.coins.markets({
     vs_currency: 'usd',
     order: CoinGecko.ORDER[key],
@@ -25,3 +22,17 @@ export const reUsable = async (key) => {
 
   return res.data;
 };
+
+// fetch history data
+export const fetchMarket = async () => {
+  try {
+    let data = await CoinGeckoClient.coins.fetchMarketChartRange('bitcoin', {
+      from: 1392577232,
+      to: 1659852847,
+    });
+    console.log(data.data)
+    return data.data
+  } catch (error) {
+    console.error()
+  }
+}

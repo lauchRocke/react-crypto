@@ -5,6 +5,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import OrderBy from '../coins/OrderBy';
+import FetchHistory from '../FetchHistory/FetchHistory';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -36,7 +37,6 @@ function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
-
   };
 }
 
@@ -50,17 +50,22 @@ export default function BasicTabs() {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          aria-label="basic tabs example"
+          centered
+        >
           <Tab label="Item One" {...a11yProps(0)} />
           <Tab label="Item Two" {...a11yProps(1)} />
           <Tab label="Item Three" {...a11yProps(2)} />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0} className='grid-container'>
-      <OrderBy />
+      <TabPanel value={value} index={0} className="grid-container">
+        <OrderBy />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <FetchHistory />
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three

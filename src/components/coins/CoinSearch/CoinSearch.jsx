@@ -4,8 +4,14 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { searchCoin } from '../../../context/CoinActions';
 import CoinContext from '../../../context/CoinContext';
+import { styled, alpha } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
 
+import InputBase from '@mui/material/InputBase';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton';
 
 export default function CoinSearch() {
   const [value, setValue] = useState('');
@@ -25,14 +31,14 @@ export default function CoinSearch() {
     }else{
         dispatch({ type: 'SET_LOADING'})
         const coin = await searchCoin(value)
-        console.log(coin);
+        // console.log(coin);
         dispatch({ type: 'GET_COIN', payload: coin});
         setValue('');
     }
   }
 
   return (
-    <div  style={{display:"inline-block"}}>
+
     <Box
       component="form"
       sx={{
@@ -44,18 +50,22 @@ export default function CoinSearch() {
     >
       <div>
         <TextField
-          id="outlined-multiline-flexible"
-          label="Search"
+          hiddenLabel
+          id="filled-hidden-label-normal"
+          defaultValue="Normal"
+          variant="filled"
+          size="small"
           value={value}
           onChange={handleChange}
-         
+          placeholder="Search…"
+          inputProps={{ 'aria-label': 'search' }}
         />
-
+     <IconButton type="submit" sx={{ p: '15px' }} aria-label="search"  onChange={handleChange} >
+        <SearchIcon />
+      </IconButton>
     </div>
-      <Button type='submit' onChange={handleChange} variant='contained'>Go</Button>
+      {/* <Button type='submit'variant='contained'>Go</Button> */}
     </Box>
-     
-   
-    </div>
-  );
+  
+  )
 }
