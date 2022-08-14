@@ -13,18 +13,20 @@ import {
 import { dateFormula } from './HistoryTime';
 
 function FetchHistoryItems({ prices }) {
+
   let [parsed, setParsed] = useState(null);
-  useEffect(() => {
-    let obj = prices.map((item) => {
-      let [date, price] = item;
-      date = new Date(date).toLocaleDateString();
-      return { date, price };
-    });
-    setParsed(obj);
-  }, [prices]);
+
+  // useEffect(() => {
+  //   let obj = prices.map((item) => {
+  //     let [date, price] = item;
+  //     date = new Date(date).toLocaleDateString();
+  //     return { date, price };
+  //   });
+  //   setParsed(obj);
+  // }, [prices]);
   // console.log(prices[0][0])
-  let getDate = dateFormula(prices[0][0]);
-  console.log(prices);
+  // let getDate = dateFormula(prices[0][0]);
+  // console.log(prices);
   return (
     <div>
       <h2>{}</h2>

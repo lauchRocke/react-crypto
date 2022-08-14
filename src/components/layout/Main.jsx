@@ -27,8 +27,8 @@ export default function Main() {
 
   return (
     <>
-      <Outlet />
-      <Tabs />
+      {/* <Outlet /> */}
+      
       <Divider />
       <BasicTabs />
       <Coin />

@@ -11,6 +11,13 @@ export const searchCoin = async (text) => {
   return response.data;
 };
 
+// list all coins
+export const listCoins = async () => {
+  let data = await CoinGeckoClient.coins.list();
+  console.log(data)
+  return data
+}
+
 export const reUsable = async (key) => {
   // console.log(key);
   let res = await CoinGeckoClient.coins.markets({
@@ -41,9 +48,10 @@ export const fetchMarket = async () => {
 export const exchangesData = async () =>{
   try {
     let data = await CoinGeckoClient.exchanges.all();
-    console.log(data.data)
+    // console.log(data.data)
     return data.data;
   } catch (error) {
     console.error(error)
   }
 }
+

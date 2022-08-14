@@ -18,7 +18,7 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import CoinSearch from '../coins/CoinSearch/CoinSearch';
 import About from './About';
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -27,6 +27,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import Crypto from '../Crypto/Crypto';
 import Nft from '../Nft/Nft';
 import Exchanges from '../Exchanges/Exchanges';
+import DisplayCoin from '../DisplayCoin/DisplayCoin';
 
 const drawerWidth = 240;
 const navItems = ['Home', <About />, 'Contact'];
@@ -56,10 +57,12 @@ function Navbar(props) {
       </List>
     </Box>
   );
- 
-  const container = window !== undefined ? () => window().document.body : undefined;
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
+    <>
     <Box sx={{ display: 'flex' }}>
       <AppBar component="nav">
         <Toolbar>
@@ -72,37 +75,33 @@ function Navbar(props) {
           >
             <MenuIcon />
           </IconButton>
-         
+
           <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          > <Link to='/' style={{textDecoration: 'none', color: 'white'}}>
-            2MARS </Link>
-
+          >
+            {' '}
+            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+              2MARS{' '}
+            </Link>
           </Typography>
-         
+
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {/* {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff' }}>
                 {item}
               </Button>
             ))} */}
-            
-            <Link to='/crypto' style={{textDecoration: 'none'}}>
-              <Button sx={{ color: '#fff' }}>
-                {<Crypto />}
-              </Button>
+
+            <Link to="/crypto" style={{ textDecoration: 'none' }}>
+              <Button sx={{ color: '#fff' }}>{<Crypto />}</Button>
             </Link>
-            <Link to='/nft' style={{textDecoration: 'none'}}>
-              <Button sx={{ color: '#fff' }}>
-                {<Nft />}
-              </Button>
+            <Link to="/nft" style={{ textDecoration: 'none' }}>
+              <Button sx={{ color: '#fff' }}>{<Nft />}</Button>
             </Link>
-            <Link to='/exchanges' style={{textDecoration: 'none'}}>
-              <Button sx={{ color: '#fff' }}>
-                Exchanges
-              </Button>
+            <Link to="/exchanges" style={{ textDecoration: 'none' }}>
+              <Button sx={{ color: '#fff' }}>Exchanges</Button>
             </Link>
           </Box>
         </Toolbar>
@@ -152,12 +151,13 @@ function Navbar(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-
+      <Box component="main" sx={{ p: 5 }}>
+        {/* <Toolbar /> */}
+        <Divider />
       </Box>
-
     </Box>
+        <DisplayCoin />
+        </>
   );
 }
 
@@ -169,4 +169,4 @@ Navbar.propTypes = {
   window: PropTypes.func,
 };
 
-export default Navbar
+export default Navbar;
