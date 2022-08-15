@@ -65,6 +65,17 @@ export const CoinReducer = (state, action) => {
           exchangesCoin: [],
           coinList: action.payload
         }
+
+        case 'GET_MARKET':
+          return {
+            ...state,
+            coin: [],
+            searchResult: null,
+            fetchHistoryCoin : [],
+            exchangesCoin: [],
+            coinList: [],
+            coinMarket: action.payload
+          }
     default:
       return state;
   }
