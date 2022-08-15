@@ -25,6 +25,7 @@ function Coin() {
 
       <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={2}>
         <Box gridColumn="span 2">
+          HI
         </Box>
 
         <Box gridColumn="span 8" >

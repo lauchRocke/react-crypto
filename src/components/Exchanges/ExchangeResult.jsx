@@ -6,7 +6,7 @@ import ExchangesItems from './ExchangesItems';
 function ExchangeResult() {
 
     const { exchangesCoin } = useContext(CoinContext)
-
+console.log(exchangesCoin)
   return (
     <div>
         

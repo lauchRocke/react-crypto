@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Box, Button } from '@mui/material';
 import { listCoins } from '../../context/CoinActions';
 import CoinContext from '../../context/CoinContext';
-import { useContext } from 'react';
 
 function DisplayCoin({ coinList }) {
   const { dispatch } = useContext(CoinContext);
+  let [list, setList] = useState([]);
 
   const handleList = async (e) => {
+    if(e){
     e.preventDefault();
+    }
     const coin = await listCoins();
+    setList(coin);
     dispatch({ type: 'GET_LIST_COINS', payload: coin });
   };
+
+  useEffect(() => {
+    handleList();
+  }, []);
   return (
     <div>
       <Box
@@ -31,6 +38,7 @@ function DisplayCoin({ coinList }) {
         >
           Display
         </Button>
+        {/* {JSON.stringify(list)} */}
       </Box>
     </div>
   );

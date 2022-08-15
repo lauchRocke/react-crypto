@@ -8,6 +8,7 @@ export const CoinProvider = ({ children }) => {
     coin: [],
     fetchHistoryCoin: null,
     searchResult: null,
+    coinList: null
   };
   const [state, dispatch] = useReducer(CoinReducer, initialState);
   // console.log(state)
