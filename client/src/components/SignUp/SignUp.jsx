@@ -15,6 +15,7 @@ import Input from '@mui/material/Input';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 import axios from "axios";
+import {useNavigate} from 'react-router-dom'
 
 // import { useHistory } from "react-router-dom";
 
@@ -36,6 +37,7 @@ const theme = createTheme();
 export default function SignUp() {
 
   // const history = useHistory();
+  let navigate = useNavigate()
 
   const [user, setUser] = useState({
     firstName: "",
@@ -56,6 +58,9 @@ export default function SignUp() {
       .post(`http://localhost:3000/user`, user)
       .then((res) => {
         console.log("~ res", res)
+        if(res.status ===200){
+          navigate('/')
+        }
 
       })
       .catch((error) => {
